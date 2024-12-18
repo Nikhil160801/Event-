@@ -1,0 +1,32 @@
+<mat-card class="event-list-card">
+  <h2 class="title">Event List</h2>
+  <ul class="event-list">
+    <li class="event-item" *ngFor="let event of events; let i = index">
+      <div class="event-details" *ngIf="!event.isEditing">
+        <span class="event-text">{{ event.date | date: 'dd-MM-yyyy' }} - {{ event.title }}</span>
+        <div class="action-buttons">
+          <button mat-icon-button color="warn" (click)="deleteEvent(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="editEvent(i)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Edit Mode -->
+      <div class="edit-event" *ngIf="event.isEditing">
+        <input [(ngModel)]="event.date" matInput placeholder="Edit Date" />
+        <input [(ngModel)]="event.title" matInput placeholder="Edit Title" />
+        <div class="edit-buttons">
+          <button mat-icon-button color="primary" (click)="saveEvent(i)">
+            <mat-icon>save</mat-icon>
+          </button>
+          <button mat-icon-button color="accent" (click)="cancelEdit(i)">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</mat-card>

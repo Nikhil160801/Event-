@@ -1,0 +1,20 @@
+<mat-card class="add-event-card">
+  <h2 class="title">Add Event</h2>
+  <form class="add-event-form">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Event Title</mat-label>
+      <input matInput [(ngModel)]="eventTitle" name="eventTitle" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Event Date</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="eventDate" name="eventDate" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="submit-button" (click)="addEvent()" type="button">
+      Add Event
+    </button>
+  </form>
+</mat-card>

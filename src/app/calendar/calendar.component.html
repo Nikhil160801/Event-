@@ -1,0 +1,14 @@
+<mat-card>
+    <h2>Event Calendar</h2>
+    <div *ngIf="events.length; else noEvents">
+      <div *ngFor="let event of events">
+        <p>
+          📅 <strong>{{ event.date | date: 'dd-MM-yyyy' }}</strong>: {{ event.title }}
+        </p>
+      </div>
+    </div>
+    <ng-template #noEvents>
+      <p>No events added yet!</p>
+    </ng-template>
+  </mat-card>
+  

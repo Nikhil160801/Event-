@@ -1,0 +1,44 @@
+
+.container {
+  display: flex; /* Enable Flexbox */
+  justify-content: center;
+}
+
+.container h1 {
+  font-size: 2.5rem; /* Set a larger font size for the heading */
+  font-weight: bold; /* Make the text bold */ /* Use a nice color for the heading */
+  margin: 0; /* Remove default margins */
+}
+.event-container {
+  display: flex; /* Use Flexbox */
+  justify-content: space-between; /* Space between the two components */
+  gap: 1.5rem; /* Add spacing between the components */
+  align-items: flex-start; /* Align components at the top */
+  max-width: 1200px; /* Set a max width for the container */
+  margin: 2rem auto; /* Center the container horizontally */
+  padding: 1rem;
+}
+
+app-add-event,
+app-event-list {
+  flex: 1; /* Make both components take equal width */
+  max-width: 48%; /* Limit width for better spacing */
+}
+
+.event-container mat-card {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+
+@media (max-width: 768px) {
+  .event-container {
+    flex-direction: column; /* Stack components vertically */
+    gap: 1rem; /* Smaller gap */
+  }
+
+  app-add-event,
+  app-event-list {
+    max-width: 100%; /* Full width for smaller screens */
+  }
+}
